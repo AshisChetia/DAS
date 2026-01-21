@@ -5,6 +5,7 @@
     background-color: white;
     border-right: 1px solid #e2e2e2;
     padding-top: 20px;
+    transition: width 0.3s;
 }
 
 .sidebar-list {
@@ -16,7 +17,7 @@
 .sidebar-link {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     padding: 12px 20px;
     cursor: pointer;
     color: #4b5563;
@@ -31,5 +32,21 @@
 }
 
 .sidebar-icon {
-    width: 24px;
+    min-width: 20px;
+    font-size: 20px;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        min-width: 0;
+        width: 80px;
+    }
+    .sidebar-text {
+        display: none;
+    }
+
+    .sidebar-link {
+        justify-content: center;
+        padding: 15px 10px;
+    }
 }
