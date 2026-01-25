@@ -1,0 +1,213 @@
+/* Appointment.css */
+
+.appointment-container {
+    padding-top: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* DOCTOR DETAILS CARD - Improved Layout */
+.doc-details-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .doc-details-card {
+        grid-template-columns: 300px 1fr; /* Fixed image width, auto info width */
+        align-items: start;
+    }
+}
+
+/* Image Section */
+.doc-img-box {
+    width: 100%;
+    background-color: #5f6fff;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Ensure image sits at bottom */
+}
+
+.doc-img {
+    width: 100%;
+    max-width: 300px; /* Limit max size */
+    object-fit: cover;
+    display: block;
+}
+
+/* Info Section */
+.doc-info {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    background-color: white;
+}
+
+.name-verified {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.verified-icon {
+    width: 1.5rem;
+}
+
+.doc-degree {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+.experience-btn {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    background: #f9f9f9;
+    color: #374151;
+}
+
+.about-section {
+    margin-top: 1.5rem;
+}
+
+.about-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.about-text {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+.doc-fee {
+    color: #4b5563;
+    font-weight: 500;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+}
+
+.doc-fee span {
+    color: #1f2937;
+    font-weight: 700;
+}
+
+/* BOOKING SLOTS SECTION */
+.booking-slots {
+    margin-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.booking-slots > p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+}
+
+/* Day Selector */
+.days-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 1rem; /* Space for scrollbar if needed */
+}
+
+.day-card {
+    text-align: center;
+    padding: 1rem 0;
+    min-width: 4.5rem;
+    border-radius: 3rem;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.day-card:hover {
+    border-color: #5f6fff;
+}
+
+.active-day {
+    background-color: #5f6fff;
+    color: white;
+    border-color: #5f6fff;
+}
+
+/* Time Selector */
+.time-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.time-pill {
+    font-size: 0.9rem;
+    font-weight: 400;
+    flex-shrink: 0;
+    padding: 0.6rem 1.5rem;
+    border-radius: 9999px;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #4b5563;
+}
+
+.time-pill:hover {
+    border-color: #5f6fff;
+    color: #5f6fff;
+}
+
+.active-time {
+    background-color: #5f6fff;
+    color: white;
+    border-color: #5f6fff;
+}
+.active-time:hover {
+    color: white;
+}
+
+.book-btn-final {
+    background-color: #5f6fff;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem 3rem;
+    border-radius: 9999px;
+    border: none;
+    margin-top: 2.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.book-btn-final:hover {
+    background-color: #4b58cc;
+}

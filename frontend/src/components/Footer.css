@@ -1,0 +1,79 @@
+.footer-container {
+    margin-top: 5rem; /* Space from the content above */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Mobile: Stack vertically */
+    gap: 2rem;
+    margin-bottom: 2.5rem; /* mb-10 */
+    font-size: 0.875rem; /* text-sm */
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr; /* 3 parts left, 1 part center, 1 part right */
+        gap: 3.5rem; /* gap-14 */
+    }
+}
+
+/* --- LEFT SECTION --- */
+.footer-logo {
+    margin-bottom: 1.25rem; /* mb-5 */
+    width: 10rem; /* w-40 */
+}
+
+.footer-text {
+    width: 100%;
+    line-height: 1.6; /* leading-6 */
+    color: #4b5563; /* text-gray-600 */
+}
+
+@media (min-width: 768px) {
+    .footer-text {
+        width: 66%; /* md:w-2/3 */
+    }
+}
+
+/* --- HEADINGS (COMPANY / GET IN TOUCH) --- */
+.footer-title {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 500; /* font-medium */
+    margin-bottom: 1.25rem; /* mb-5 */
+    color: #1f2937; /* text-gray-900 */
+}
+
+/* --- LINKS --- */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* gap-2 */
+    color: #4b5563; /* text-gray-600 */
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.footer-links li:hover {
+    color: #1f2937; /* Darker on hover */
+}
+
+/* --- COPYRIGHT BAR --- */
+.footer-line {
+    border: none;
+    height: 1px;
+    background-color: #d1d5db; /* border-gray-300 */
+    margin-bottom: 1.25rem; /* py-5 equivalent space */
+}
+
+.copyright-text {
+    padding: 1.25rem 0; /* py-5 */
+    text-align: center;
+    font-size: 0.875rem; /* text-sm */
+    color: #1f2937;
+}

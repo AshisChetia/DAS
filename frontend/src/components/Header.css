@@ -1,0 +1,94 @@
+/* --- HEADER CONTAINER --- */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers content horizontally */
+    background-color: #5f6fff;
+    border-radius: 1.5rem;
+    padding: 4rem 2rem; /* More vertical padding for a big banner look */
+    margin: 1.5rem auto;
+    position: relative;
+    box-shadow: 0px 10px 30px rgba(95, 111, 255, 0.2);
+}
+
+@media (min-width: 768px) {
+    .header-container {
+        padding: 6rem 4rem; /* Even larger on desktop */
+        margin-top: 2rem;
+    }
+}
+
+/* --- CONTENT WRAPPER --- */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers text and button */
+    text-align: center; /* Centers text lines */
+    gap: 1.5rem;
+    max-width: 800px; /* Prevents text from getting too wide */
+    z-index: 10;
+}
+
+.header-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .header-title {
+        font-size: 3.5rem;
+    }
+}
+
+.header-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the group icons and text */
+    gap: 1rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .header-description {
+        flex-direction: row; /* Keep icons and text side-by-side on desktop */
+        gap: 1rem;
+    }
+}
+
+.group-profiles {
+    width: 6rem;
+    border-radius: 9999px;
+    background-color: white; /* Adds a nice white backing to the profiles */
+    padding: 2px;
+}
+
+/* --- BUTTON --- */
+.book-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: white;
+    color: #5f6fff;
+    padding: 1rem 2.5rem; /* Larger button */
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    text-decoration: none;
+}
+
+.book-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.arrow-icon {
+    width: 0.8rem;
+}

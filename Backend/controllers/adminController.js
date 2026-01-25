@@ -1,8 +1,11 @@
 import validator from "validator";
 import bcrypt from "bcrypt";
 import { v2 as cloudinary } from "cloudinary";
-import doctorModel from "../models/doctorModel.js";
 import jwt from "jsonwebtoken";
+
+import doctorModel from "../models/doctorModel.js";
+import appointmentModel from "../models/appointmentModel.js";
+import userModel from "../models/userModel.js";
 
 
 //API for adding doctor
@@ -13,7 +16,7 @@ const addDoctor = async (req, res) => {
         const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
         //1. Check for all data
-        if(!name || !email || !password || !speciality || !degree || !experience || !about || !fees || !address) {
+        if (!name || !email || !password || !speciality || !degree || !experience || !about || !fees || !address) {
             return res.json({
                 success: false,
                 message: "Missing Details"
@@ -21,15 +24,15 @@ const addDoctor = async (req, res) => {
         }
 
         //2. Validate email format
-        if(!validator.isEmail(email)) {
+        if (!validator.isEmail(email)) {
             return res.json({
-                success: false, 
+                success: false,
                 message: "Please enter a valid email"
             })
         }
 
         //3. Validate strong password
-        if(!strongPasswordRegex.test(password)) {
+        if (!strongPasswordRegex.test(password)) {
             return res.json({
                 success: false,
                 message: "Password must include 1 uppercase, 1 number, and 1 special character"
@@ -63,27 +66,27 @@ const addDoctor = async (req, res) => {
         const newDoctor = new doctorModel(doctorData);
         await newDoctor.save();
 
-        res.json({success: true, message: "Doctor added"});
+        res.json({ success: true, message: "Doctor added" });
 
     } catch (error) {
         console.log(error);
-        res.json({success: false, message: error.message})
+        res.json({ success: false, message: error.message })
     }
 }
 
 const loginAdmin = async (req, res) => {
     try {
-        const {email, password} = req.body;
+        const { email, password } = req.body;
 
-        if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+        if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
             const token = jwt.sign(email + password, process.env.JWT_SECRET);
-            res.json({success: true, token});
+            res.json({ success: true, token });
         } else {
-            res.json({success: false, message: "Invalid credentials"});
+            res.json({ success: false, message: "Invalid credentials" });
         }
     } catch (error) {
         console.log(error);
-        res.json({ success: false, message: error.message});
+        res.json({ success: false, message: error.message });
     }
 }
 
@@ -91,11 +94,41 @@ const loginAdmin = async (req, res) => {
 const allDoctors = async (req, res) => {
     try {
         const doctors = await doctorModel.find({}).select('-password');
-        res.json({ success: true, doctors})
+        res.json({ success: true, doctors })
     } catch (error) {
         console.log(error);
-        res.json({ success: false, message: error.message})
+        res.json({ success: false, message: error.message })
     }
 }
 
-export { addDoctor, loginAdmin, allDoctors };
+const appointmentsAdmin = async (req, res) => {
+    try {
+        const appointments = await appointmentModel.find({});
+        res.json({ success: true, appointments })
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message })
+    }
+}
+
+const adminDashboard = async (req, res) => {
+    try {
+        const doctors = await doctorModel.find({});
+        const users = await userModel.find({});
+        const appointments = await appointmentModel.find({});
+
+        const dashData = {
+            doctors: doctors.length,
+            appointments: appointments.length,
+            patients: users.length,
+            latestAppointments: appointments.reverse().slice(0.5)
+        }
+
+        res.json({ success: true, dashData })
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message })
+    }
+}
+
+export { addDoctor, loginAdmin, allDoctors, appointmentsAdmin, adminDashboard };

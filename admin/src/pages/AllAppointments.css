@@ -1,0 +1,105 @@
+.appointments-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 5px;
+}
+
+.appointments-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.appointments-table {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 80vh;
+    overflow-y: scroll;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 1fr 3fr 3fr 1fr 1fr;
+    padding: 15px 20px;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 1fr 3fr 3fr 1fr 1fr;
+    /* Must match header */
+    padding: 15px 20px;
+    align-items: center;
+    color: #4b5563;
+    font-size: 14px;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background-color 0.2s;
+}
+
+.table-row:hover {
+    background-color: #f9fafb;
+}
+
+/* Specific Column Styles */
+.patient-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.patient-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.doc-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cancel-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: white;
+    color: #ef4444;
+    /* Red */
+    border: 1px solid #fecaca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+
+.cancel-btn:hover {
+    background-color: #fef2f2;
+    transform: scale(1.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+
+    .table-header,
+    .table-row {
+        /* Hide less important columns on mobile */
+        grid-template-columns: 0.5fr 3fr 3fr 1fr;
+    }
+
+    /* Hide Age, Date, and Doctor on very small screens if needed */
+    .hide-on-mobile {
+        display: none;
+    }
+}
